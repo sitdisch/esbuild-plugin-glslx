@@ -1,3 +1,7 @@
+Differences from https://github.com/evanw/esbuild-plugin-glslx :
+- Support glslx build options
+- Update glslx vertion to 0.2.13
+
 # esbuild-plugin-glslx
 
 A plugin for [esbuild](https://github.com/evanw/esbuild) that adds support for `*.glslx` file imports including shader type checking at build time. [GLSLX](https://github.com/evanw/glslx) is a language extension for GLSL that lets you write multiple WebGL 1.0 shaders in the same file using the `export` keyword. It comes with a [GLSLX Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=evanw.glslx-vscode) that enables standard IDE features for GLSLX including type checking, go-to-definition, symbol renaming, and format-on-save. GLSLX code looks something like this:
