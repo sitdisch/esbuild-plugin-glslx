@@ -59,6 +59,7 @@ module.exports = ({
         js += `export var ${shader.name} = ${JSON.stringify(shader.contents)};\n`;
         ts += `export var ${shader.name}: string;\n`;
       }
+      js += `export var renaming = ${JSON.stringify(json.renaming)};\n`;
       if (writeTypeDeclarations) {
         await fs.promises.writeFile(args.path + '.d.ts', ts);
       }
