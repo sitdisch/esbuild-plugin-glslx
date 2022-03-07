@@ -1,8 +1,24 @@
+# Forked version of [esbuild-plugin-glslx](https://www.npmjs.com/package/esbuild-plugin-glslx) | New
+Differences from https://github.com/rottencandy/esbuild-plugin-glslx :
+- optional [C/GLSL-preprocessor](https://github.com/dy/prepr) added 
+- default build options adjusted to match [GLSLX](https://github.com/evanw/glslx/blob/master/npm/glslx.d.ts)
+
+```
+// OPTIONAL BUILD OPTIONS:
+
+writeTypeDeclarations: boolean             // Default: false
+renaming: 'all' | 'internal-only' | 'none' // Default: 'all'
+disableRewriting: boolean                  // Default: false
+prettyPrint: boolean                       // Default: false
+preprocess: object                         // Default: inactive (null)
+```
+> Application Example: [mtw-boilerplate-canvas](https://github.com/mythemeway/mtw-boilerplate-canvas "Check it out") to quickly & easily develop WebGL canvases 
+
 Differences from https://github.com/evanw/esbuild-plugin-glslx :
 - Support glslx build options
 - Update glslx vertion to 0.2.13
 
-# esbuild-plugin-glslx
+# esbuild-plugin-glslx | Original
 
 A plugin for [esbuild](https://github.com/evanw/esbuild) that adds support for `*.glslx` file imports including shader type checking at build time. [GLSLX](https://github.com/evanw/glslx) is a language extension for GLSL that lets you write multiple WebGL 1.0 shaders in the same file using the `export` keyword. It comes with a [GLSLX Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=evanw.glslx-vscode) that enables standard IDE features for GLSLX including type checking, go-to-definition, symbol renaming, and format-on-save. GLSLX code looks something like this:
 

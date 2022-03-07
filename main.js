@@ -2,17 +2,19 @@ const glslx = require('glslx');
 
 module.exports = ({
   writeTypeDeclarations = false,
-  prettyPrint = true,
-  disableRewriting = true,
-  renaming = 'none'
+  renaming = 'all',
+  disableRewriting = false,
+  prettyPrint = false,
+  preprocess = null
 } = {}) => ({
   name: 'glslx',
   setup(build) {
     const path = require('path');
     const fs = require('fs');
-
+    const prepr = (preprocess === null) ? arg => { return arg; } : require('prepr');
+    
     build.onLoad({ filter: /\.glslx$/ }, async (args) => {
-      const contents = await fs.promises.readFile(args.path, 'utf8');
+      const contents = prepr(await fs.promises.readFile(args.path, 'utf8'), preprocess);
       const input = [{ name: args.path, contents }];
       const errors = [];
       const warnings = [];
@@ -21,7 +23,7 @@ module.exports = ({
 
       const fileAccess = (filePath, relativeTo) => {
         const name = path.join(path.dirname(relativeTo), filePath);
-        const contents = cache[name] || (cache[name] = fs.readFileSync(name, 'utf8'));
+        const contents = cache[name] || (cache[name] = prepr(fs.readFileSync(name, 'utf8'), preprocess));
         return { name, contents };
       };
 

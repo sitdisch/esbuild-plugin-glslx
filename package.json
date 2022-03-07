@@ -1,16 +1,17 @@
 {
-  "name": "@rottencandy/esbuild-plugin-glslx",
+  "name": "@sitdisch/esbuild-plugin-glslx",
   "description": "A plugin for esbuild that enables importing *.glslx files.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rottencandy/esbuild-plugin-glslx.git"
+    "url": "git+https://github.com/sitdisch/esbuild-plugin-glslx.git"
   },
   "main": "./main.js",
   "types": "./main.d.ts",
   "dependencies": {
+    "prepr": "1.2.4",
     "glslx": "0.2.13"
   },
-  "homepage": "https://github.com/rottencandy/esbuild-plugin-glslx#readme"
+  "homepage": "https://github.com/sitdisch/esbuild-plugin-glslx#readme"
 }
