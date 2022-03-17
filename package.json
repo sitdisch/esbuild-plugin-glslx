@@ -1,6 +1,6 @@
 {
   "name": "@sitdisch/esbuild-plugin-glslx",
-  "description": "A plugin for esbuild that enables importing *.glslx files.",
+  "description": "A plugin for esbuild that enables importing *.glslx files. | Forked version with optional C/GLSL-preprocessor",
   "version": "0.0.4",
   "license": "MIT",
   "repository": {

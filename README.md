@@ -1,18 +1,55 @@
-# Forked version of [esbuild-plugin-glslx](https://www.npmjs.com/package/esbuild-plugin-glslx) | New
+# Forked Version of [esbuild-plugin-glslx](https://www.npmjs.com/package/esbuild-plugin-glslx) | New
 Differences from https://github.com/rottencandy/esbuild-plugin-glslx :
 - optional [C/GLSL-preprocessor](https://github.com/dy/prepr) added 
 - default build options adjusted to match [GLSLX](https://github.com/evanw/glslx/blob/master/npm/glslx.d.ts)
 
-```
-// OPTIONAL BUILD OPTIONS:
+OPTIONAL BUILD OPTIONS:
 
+```ts
 writeTypeDeclarations: boolean             // Default: false
 renaming: 'all' | 'internal-only' | 'none' // Default: 'all'
 disableRewriting: boolean                  // Default: false
 prettyPrint: boolean                       // Default: false
 preprocess: object                         // Default: inactive (null)
 ```
-> Application Example: [mtw-boilerplate-canvas](https://github.com/mythemeway/mtw-boilerplate-canvas "Check it out") to quickly & easily develop WebGL canvases 
+
+ENABLE PREPROCESSING:
+
+without special settings
+
+```js
+const glslxPlugin = require('@sitdisch/esbuild-plugin-glslx');
+...
+esbuild.build({
+  ...
+  plugins: [
+    glslxPlugin({
+      preprocess: {}
+    }),
+  ],
+})
+```
+
+with special settings
+
+```js
+const glslxPlugin = require('@sitdisch/esbuild-plugin-glslx');
+...
+esbuild.build({
+  ...
+  plugins: [
+    glslxPlugin({
+      preprocess: {
+        myVar: 1,
+        myMacro: function (arg) { return arg; }
+      }
+    }),
+  ],
+})
+```
+
+> <b>Install Procedure</b>: `npm i @sitdisch/esbuild-plugin-glslx`<br>
+> <b>Application Example</b>: [mtw-boilerplate-canvas](https://github.com/mythemeway/mtw-boilerplate-canvas "Check it out") to quickly & easily develop WebGL canvas bundles
 
 Differences from https://github.com/evanw/esbuild-plugin-glslx :
 - Support glslx build options
