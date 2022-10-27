@@ -49,11 +49,11 @@ esbuild.build({
 ```
 
 > <b>Install Procedure</b>: `npm i @sitdisch/esbuild-plugin-glslx`<br>
-> <b>Application Example</b>: [mtw-boilerplate-canvas](https://github.com/mythemeway/mtw-boilerplate-canvas "Check it out") to quickly & easily develop WebGL canvas bundles
+> <b>Application Example</b>: [mtw-boilerplate-graphics](https://github.com/mythemeway/mtw-boilerplate-graphics "Check it out") to quickly & easily develop WebGL canvas bundles
 
 Differences from https://github.com/evanw/esbuild-plugin-glslx :
 - Support glslx build options
-- Update glslx vertion to 0.2.13
+- Update glslx version to 0.2.13
 
 # esbuild-plugin-glslx | Original
 
