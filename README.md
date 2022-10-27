@@ -1,5 +1,5 @@
 # Forked Version of [esbuild-plugin-glslx](https://www.npmjs.com/package/esbuild-plugin-glslx) | New
-Differences from https://github.com/rottencandy/esbuild-plugin-glslx :
+Differences from https://github.com/evanw/esbuild-plugin-glslx :
 - optional [C/GLSL-preprocessor](https://github.com/dy/prepr) added 
 - default build options adjusted to match [GLSLX](https://github.com/evanw/glslx/blob/master/npm/glslx.d.ts)
 
@@ -50,10 +50,6 @@ esbuild.build({
 
 > <b>Install Procedure</b>: `npm i @sitdisch/esbuild-plugin-glslx`<br>
 > <b>Application Example</b>: [mtw-boilerplate-graphics](https://github.com/mythemeway/mtw-boilerplate-graphics "Check it out") to quickly & easily develop WebGL canvas bundles
-
-Differences from https://github.com/evanw/esbuild-plugin-glslx :
-- Support glslx build options
-- Update glslx version to 0.2.13
 
 # esbuild-plugin-glslx | Original
 
