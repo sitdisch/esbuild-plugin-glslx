@@ -18,12 +18,22 @@ module.exports = ({
       const input = [{ name: args.path, contents }];
       const errors = [];
       const warnings = [];
+      const watchFiles = [];
       const cache = Object.create(null);
       cache[args.path] = contents;
 
       const fileAccess = (filePath, relativeTo) => {
         const name = path.join(path.dirname(relativeTo), filePath);
-        const contents = cache[name] || (cache[name] = prepr(fs.readFileSync(name, 'utf8'), preprocess));
+        let contents = cache[name];
+        if (contents === undefined) {
+          watchFiles.push(name);
+          try {
+            contents = prepr(fs.readFileSync(name, 'utf8'), preprocess);
+          } catch {
+            return null;
+          }
+          cache[name] = contents;
+        }
         return { name, contents };
       };
 
@@ -45,7 +55,7 @@ module.exports = ({
         if (kind === 'warning') warnings.push(message);
       }
 
-      if (errors.length > 0) return { errors, warnings };
+      if (errors.length > 0) return { errors, warnings, watchFiles };
 
       const json = JSON.parse(glslx.compile(input, {
         format: 'json',
@@ -65,7 +75,7 @@ module.exports = ({
       if (writeTypeDeclarations) {
         await fs.promises.writeFile(args.path + '.d.ts', ts);
       }
-      return { contents: js, warnings };
+      return { contents: js, warnings, watchFiles };
     });
   },
 });
