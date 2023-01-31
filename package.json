@@ -10,7 +10,7 @@
   "main": "./main.js",
   "types": "./main.d.ts",
   "dependencies": {
-    "prepr": "1.2.4",
+    "prepr": "2.0.1",
     "glslx": "0.3.0"
   },
   "homepage": "https://github.com/sitdisch/esbuild-plugin-glslx#readme"
